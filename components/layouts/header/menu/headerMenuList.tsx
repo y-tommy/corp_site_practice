@@ -21,7 +21,9 @@ export const HeaderMenuList = () => {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="text-muted-foreground hover:text-foreground px-3 py-2 rounded-md text-sm font-medium">会社について</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="text-muted-foreground hover:text-foreground px-3 py-2 rounded-md text-sm font-medium">
+            <Link href={"/company"}>会社について</Link>
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {footerItems1.map((menuList) => (
@@ -34,7 +36,9 @@ export const HeaderMenuList = () => {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="text-muted-foreground hover:text-foreground px-3 py-2 rounded-md text-sm font-medium">事業について</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="text-muted-foreground hover:text-foreground px-3 py-2 rounded-md text-sm font-medium">
+          <Link href={"/business"}>事業について</Link>
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {footerItems2.map((menuList) => (
@@ -47,7 +51,9 @@ export const HeaderMenuList = () => {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="text-muted-foreground hover:text-foreground px-3 py-2 rounded-md text-sm font-medium">お問い合わせ</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="text-muted-foreground hover:text-foreground px-3 py-2 rounded-md text-sm font-medium">
+          <Link href={"/contact"}>お問い合わせ</Link>
+          </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {footerItems3.map((menuList) => (
