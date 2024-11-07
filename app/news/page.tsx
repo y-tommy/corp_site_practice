@@ -1,9 +1,10 @@
+import Heading from "@/components/layouts/heading/heading";
 import React from "react";
 
 const News = () => {
   return (
     <div>
-      Newsの一覧ページ
+      <Heading title="ニュース" />
     </div>
   );
 }
