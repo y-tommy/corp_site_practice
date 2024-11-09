@@ -3,7 +3,7 @@ import React from "react";
 
 const News = () => {
   return (
-    <div>
+    <div className="container mx-auto px-4 py-4 flex-grow sm:px-6 lg:px-8">
       <Heading title="ニュース" />
     </div>
   );
