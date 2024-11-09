@@ -1,6 +1,6 @@
 import React from "react";
 
-const Introduction = () => {
+const PrivacyPolicy = () => {
   return (
     <div>
       Introduction
@@ -8,4 +8,4 @@ const Introduction = () => {
   );
 }
 
-export default Introduction;
+export default PrivacyPolicy;

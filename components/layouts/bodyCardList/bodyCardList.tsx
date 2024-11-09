@@ -8,25 +8,28 @@ import {
   CardTitle
 } from "@/components/ui/card";
 import Link from "next/link";
+import { footerItems } from "../footer/footerItems";
 
-const BodyCardList = ({item}) => {
+const BodyCardList = ({index}: {index: number}) => {
   return (
-    <div>
-      <li className="p-10 mx-auto" key={item.name}>
-        <Link href={item.href}>
-          <Card className="w-[350px]">
-            <CardHeader>
-              <CardTitle>{item.name}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CardDescription>{item.detail}</CardDescription>
-            </CardContent>
-            <CardFooter>
-            </CardFooter>
-          </Card>
-        </Link>
-      </li>
-    </div>
+    <ul className="grid grid-cols-2">
+      {footerItems[index].map((item) => (
+        <li className="p-10 mx-auto" key={item.name}>
+          <Link href={item.href}>
+            <Card className="w-[350px]">
+              <CardHeader>
+                <CardTitle>{item.name}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>{item.detail}</CardDescription>
+              </CardContent>
+              <CardFooter>
+              </CardFooter>
+            </Card>
+          </Link>
+        </li>
+      ))}
+    </ul>
   );
 }
 
