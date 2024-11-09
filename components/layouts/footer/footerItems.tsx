@@ -32,6 +32,6 @@ export const footerItems = [[
   { name: "お問い合わせフォーム", href: "/contact/form", detail: "お問い合わせはこちら" },
   { name: "よくあるご質問", href: "/contact/FAQ", detail: "良く頂いておりますご質問のまとめ" },
 ],[
-  { name: "プライバシーポリシー", href: "/contact" },
-  { name: "ニュース", href: "/FAQ"},
+  { name: "プライバシーポリシー", href: "/privacypolicy", detail: "プライバシーポリシー" },
+  { name: "ニュース", href: "/news", detail: "ニュース一覧です"},
 ]];
