@@ -1,11 +1,6 @@
 import Link from "next/link";
-import {
-  footerItems1,
-  footerItems2,
-  footerItems3,
-  footerItems4
-} from "./footerItems";
 import { NavigationMenu } from "@radix-ui/react-navigation-menu";
+import FooterMenu from "./footerMenu";
 
 const Footer = () => {
   return (
@@ -19,54 +14,10 @@ const Footer = () => {
               </Link>
             </NavigationMenu>
           </div>
-          <div>
-            <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase mb-4">会社について</h3>
-            <ul className="space-y-2">
-              {footerItems1.map((item) => (
-                <li key={item.name}>
-                  <Link href={item.href} className="text-sm text-muted-foreground hover:text-foreground">
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase mb-4">事業について</h3>
-            <ul className="space-y-2">
-              {footerItems2.map((item) => (
-                <li key={item.name}>
-                  <Link href={item.href} className="text-sm text-muted-foreground hover:text-foreground">
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase mb-4">お問い合わせ</h3>
-            <ul className="space-y-2">
-              {footerItems3.map((item) => (
-                <li key={item.name}>
-                  <Link href={item.href} className="text-sm text-muted-foreground hover:text-foreground">
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase mb-4">　</h3>
-            <ul className="space-y-2">
-              {footerItems4.map((item) => (
-                <li key={item.name}>
-                  <Link href={item.href} className="text-sm text-muted-foreground hover:text-foreground">
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <FooterMenu index={0} title="会社について" />
+          <FooterMenu index={1} title="事業について" />
+          <FooterMenu index={2} title="お問い合わせ" />
+          <FooterMenu index={3} title="　" />
         </div>
         <div className="mt-8 border-t border-muted pt-8 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground">© 2024 会社名</p>
