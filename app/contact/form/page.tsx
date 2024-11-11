@@ -1,25 +1,43 @@
+"use client";
+
 import Heading from "@/components/layouts/heading/heading";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import React from "react";
+import { postAction } from "./postAction";
+import { useFormState, useFormStatus } from "react-dom";
+
+function Submit() {
+  const status = useFormStatus();
+  return (
+    <Button type="submit" disabled={status.pending}>
+      {status.pending ? "送信中..." : "送信"}
+    </Button>
+  );
+}
 
 const ContactForm = () => {
+  const [result, dispatch] = useFormState(postAction, {});
   return (
     <div className="container mx-auto px-4 py-4 flex-grow sm:px-6 lg:px-8">
       <Heading title="フォーム" />
       <div className="flex h-screen">
         <p>ここにメッセージが出ます。<br />フォーム作ります</p>
-        <form>
+        <form action={dispatch}>
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="name">Name</Label>
-              <Input id="name" placeholder="名前" />
+              {result.errors && <div className="text-red-500">{result.errors.name}</div>}
+              <Label htmlFor="name">名前</Label>
+              <Input name="name" placeholder="名前" />
             </div>
             <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="framework">Eメール</Label>
-              <Input id="e-mail" placeholder="XXX@example.com" />
+              {result.errors && <div className="text-red-500">{result.errors.email}</div>}
+              <Label htmlFor="email">Eメール</Label>
+              <Input name="email" placeholder="XXX@example.com" />
             </div>
           </div>
+          <Submit />
         </form>
       </div>
     </div>
