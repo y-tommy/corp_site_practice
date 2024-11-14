@@ -23,6 +23,7 @@ const ContactForm = () => {
     <div className="container mx-auto px-4 py-4 flex-grow sm:px-6 lg:px-8">
       <Heading title="フォーム" />
       <div className="flex h-screen">
+        <p>ここにメッセージが出ます。<br />フォーム作ります</p>
         <form action={dispatch}>
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5">
