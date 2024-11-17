@@ -39,7 +39,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 使用ライブラリ等
 next@14.2.15
 react@18.3.1
-axios@1.7.7
 <!-- ホーム画像のフェードインに使用 -->
 framer-motion@11.11.8
 <!-- 各種メニューアイコンに使用 -->
