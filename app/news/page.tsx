@@ -5,6 +5,7 @@ import { Post } from "./type";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import Link from "next/link";
 import { handleToDate } from "./[id]/page";
+import Body from "@/components/layouts/body/body";
 
 
 
@@ -21,7 +22,7 @@ const News = async () => {
   const posts: Post[] = await getData();
 
   return (
-    <div className="container mx-auto px-4 py-4 flex-grow sm:px-6 lg:px-8">
+    <Body>
       <Heading title="ニュース" />
       <Suspense fallback={<Loading />}>
         <div className="flex h-screen">
@@ -41,7 +42,7 @@ const News = async () => {
           </Table>
         </div>
       </Suspense>
-    </div>
+    </Body>
   );
 }
 

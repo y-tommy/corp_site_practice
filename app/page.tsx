@@ -15,10 +15,9 @@ export default function Home() {
           transition={{duration: 0.5, delay: 0}}
           key="image-container"
         >
-          <Image src={"/night-view-2172718_1280.jpg"} alt="no-image" layout="fill" />
+          <Image src={"/night-view-2172718_1280.jpg"} alt="no-image" fill />
         </motion.div>
       </AnimatePresence>
-      
     </div>
   );
 }

@@ -7,10 +7,11 @@ import {
 import React from "react";
 import { FAQItems } from "./FAQItems";
 import Heading from "@/components/layouts/heading/heading";
+import Body from "@/components/layouts/body/body";
 
 const Faq = () => {
   return (
-    <div className="container mx-auto px-4 py-4 flex-grow sm:px-6 lg:px-8">
+    <Body>
       <Heading title="FAQ" />
       <div className="flex h-screen">
         <Accordion type="single" collapsible className="w-full">
@@ -24,7 +25,7 @@ const Faq = () => {
           ))}
         </Accordion>
       </div>
-    </div>
+    </Body>
   );
 }
 
