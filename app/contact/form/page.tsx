@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import React from "react";
 import { postAction } from "./postAction";
 import { useFormState, useFormStatus } from "react-dom";
+import Body from "@/components/layouts/body/body";
 
 function Submit() {
   const status = useFormStatus();
@@ -20,7 +21,7 @@ function Submit() {
 const ContactForm = () => {
   const [result, dispatch] = useFormState(postAction, {});
   return (
-    <div className="container mx-auto px-4 py-4 flex-grow sm:px-6 lg:px-8">
+    <Body>
       <Heading title="フォーム" />
       <div className="flex h-screen">
         <form action={dispatch}>
@@ -39,7 +40,7 @@ const ContactForm = () => {
           <Submit />
         </form>
       </div>
-    </div>
+    </Body>
   );
 }
 

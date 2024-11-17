@@ -1,10 +1,11 @@
 import Heading from "@/components/layouts/heading/heading";
 import React from "react";
 import { policyItems } from "./policyItems";
+import Body from "@/components/layouts/body/body";
 
 const PrivacyPolicy = () => {
   return (
-    <div className="container mx-auto px-4 py-4 flex-grow sm:px-6 lg:px-8">
+    <Body>
       <Heading title="プライバシーポリシー" />
       <table className="container mx-auto">
         <thead className="">
@@ -28,7 +29,7 @@ const PrivacyPolicy = () => {
           ))}
         </tbody>
       </table>
-    </div>
+    </Body>
   );
 }
 

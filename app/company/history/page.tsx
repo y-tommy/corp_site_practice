@@ -2,10 +2,11 @@ import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import React from "react";
 import { historyItems } from "./historyItems";
 import Heading from "@/components/layouts/heading/heading";
+import Body from "@/components/layouts/body/body";
 
 const History = () => {
   return (
-    <div className="container mx-auto px-4 py-4 flex-grow sm:px-6 lg:px-8">
+    <Body>
       <Heading title="沿革" />
       <div className="flex h-screen">
         <Table>
@@ -19,7 +20,7 @@ const History = () => {
           </TableBody>
         </Table>
       </div>
-    </div>
+    </Body>
     
   );
 }
