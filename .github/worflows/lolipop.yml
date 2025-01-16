@@ -40,6 +40,6 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           # 自分のサイトのディレクトリを指定する
-          server-dir: back/corp_app
+          server-dir: /
           local-dir: app/
           # protocol: ftps
