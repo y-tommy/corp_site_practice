@@ -1,12 +1,22 @@
 class PostsController < ApplicationController
+  include Pagination
+  before_action :set_post, only: [:show,:update,:destroy]
+
   def index
-    @posts = Post.all
-    render json:@posts
+    @posts = Post.page(params[:page]).per(10).order('created_at DESC')
+
+    @pagination = pagination(@posts)
+
+    json_data = {
+      "posts": @posts,
+      "pagination": @pagination,
+    }
+
+    render json: json_data
   end
 
   def show
-    @post = Post.find(params[:id])
-    render json:@post
+    render json: @post
   end
 
   def edit
@@ -23,7 +33,6 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id])
     if @post.update(post_params)
       render json: @post
     else
@@ -32,11 +41,13 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
   end
 
   private
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
   def post_params
     params.require(:post).permit(:title, :content)
