@@ -27,7 +27,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Build Next.js App
-        run: npm run build
+        run: npm run dev
 
       - name: Upload to Lolipop via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
