@@ -37,5 +37,5 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           # 自分のサイトのディレクトリを指定する
           server-dir: /
-          local-dir: app/
+          local-dir: /
           # protocol: ftps
