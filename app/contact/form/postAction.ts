@@ -2,7 +2,14 @@
 
 import { redirect } from "next/navigation";
 
-export async function postAction(prev: any, formData: FormData) {
+interface ReturnType {
+  errors?: {
+    name?: string;
+    email?: string;
+  }
+};
+
+export async function postAction(prev: ReturnType, formData: FormData) {
   const name = formData.get("name");
   const email = formData.get("email");
   if (!name && !email) {
