@@ -28,12 +28,12 @@ const ContactForm = () => {
             <div className="flex flex-col space-y-1.5">
               {result.errors && <div className="text-red-500">{result.errors.name}</div>}
               <Label htmlFor="name">名前</Label>
-              <input name="name" placeholder="名前" />
+              <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="name" placeholder="名前" />
             </div>
             <div className="flex flex-col space-y-1.5">
               {result.errors && <div className="text-red-500">{result.errors.email}</div>}
               <Label htmlFor="email">Eメール</Label>
-              <input name="email" placeholder="XXX@example.com" />
+              <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="email" placeholder="XXX@example.com" />
             </div>
           </div>
           <Submit />
