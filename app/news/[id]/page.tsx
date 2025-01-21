@@ -1,14 +1,11 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import { Post } from "../type";
 import Heading from "@/components/layouts/heading/heading";
 import Body from "@/components/layouts/body/body";
-
-export async function getDetailData(id: string) {
-  const res = await fetch(`http://localhost:3001/posts/${id}/`, {
-    cache: "no-store"
-  });
-  return res.json();
-}
+import Loading from "../loading";
+import { getDetailData } from "@/app/api/news/route";
 
 export const handleToDate = (day: string) =>{
   const date = new Date(day);
@@ -16,8 +13,29 @@ export const handleToDate = (day: string) =>{
   return japanDate;
 }
 
-const NewsDetails = async ({ params }:{ params: { id: string } }) => {
-  const post: Post = await getDetailData(params.id);
+const NewsDetails = ({ params }:{ params: { id: string } }) => {
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+  const id = params.id
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const detailData = await getDetailData(id);
+        setData(detailData);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  },[]);
+  const post: Post[] = data;
+  
+  if (loading) {
+    return <Loading />
+  }
+  
   return (
     <Body>
       <Heading title="ニュース" />
