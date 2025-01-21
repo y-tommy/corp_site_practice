@@ -1,11 +1,13 @@
+"use server";
+
 import axios from "axios";
 
 export const getData = async () => {
-  const res = await axios.get("http://localhost:3001/posts/")
+  const res = await axios.get(`${process.env.API_ENDPOINT}/posts/`)
   return res.data;
 };
 
 export const getPaginateData = async (page: number) => {
-  const res = await axios.get(`http://localhost:3001/posts?page=${page}`)
+  const res = await axios.get(`${process.env.API_ENDPOINT}/posts?page=${page}`)
   return res.data;
 };
