@@ -8,7 +8,8 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
     # origins "http://localhost:3000"
-    origins ENV['WEBSITE_URL']
+    # origins ENV['WEBSITE_URL']
+    origins "https://corp-site-practice.vercel.app/"
 
     resource "*",
       headers: :any,
