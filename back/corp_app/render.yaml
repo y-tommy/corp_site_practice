@@ -1,0 +1,22 @@
+databases:
+  - name: corp_site_db
+    databaseName: dpg-cu7lm32n91rc73d42rng-a
+    user: ytommy
+    region: singapore
+
+services:
+  - type: web
+    name: corp_site_practice_api
+    env: ruby
+    region: singapore
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: <%= ENV['DATABASE_URL'] %>
+        fromDatabase:
+          name: corp_site_db
+          property: connectionString
+      - key: <%= ENV['RAILS_MASTER_KEY'] %>
+        sync: false
+
