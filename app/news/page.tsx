@@ -9,7 +9,7 @@ import { handleToDate } from "./[id]/page";
 import Body from "@/components/layouts/body/body";
 import { getData, getPaginateData } from "../api/news/route";
 import { Button } from "@/components/ui/button";
-import Loading from "./loading";
+import Loading from "@/components/layouts/loading/loading";
 
 const News = () => {
   const [currentPage, setCurrentPage] = useState(1);

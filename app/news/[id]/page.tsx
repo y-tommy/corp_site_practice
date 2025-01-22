@@ -4,8 +4,8 @@ import React, { useEffect, useState } from "react";
 import { Post } from "../type";
 import Heading from "@/components/layouts/heading/heading";
 import Body from "@/components/layouts/body/body";
-import Loading from "../loading";
 import { getDetailData } from "@/app/api/news/route";
+import Loading from "@/components/layouts/loading/loading";
 
 export const handleToDate = (day: string) =>{
   const date = new Date(day);
