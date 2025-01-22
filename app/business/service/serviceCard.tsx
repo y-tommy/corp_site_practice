@@ -13,9 +13,9 @@ import Link from "next/link";
 const ServiceCard = () => {
   return (
     <div>
-      <ul className="flex">
+      <ul className="flex flex-wrap">
         {serviceItems.map((item) => (
-          <li className="px-6" key={item.title}>
+          <li className="p-6" key={item.title}>
             <Link href={`/business/service/${item.id}`}>
               <Card className="w-[350px]">
                 <CardHeader>

@@ -7,7 +7,7 @@ interface ReturnType {
     name?: string;
     email?: string;
   }
-};
+}
 
 export async function postAction(prev: ReturnType, formData: FormData) {
   const name = formData.get("name");
