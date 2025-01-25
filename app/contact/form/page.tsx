@@ -7,6 +7,7 @@ import React from "react";
 import { postAction } from "./postAction";
 import { useFormState, useFormStatus } from "react-dom";
 import Body from "@/components/layouts/body/body";
+import Input from "@/components/layouts/input/input";
 
 function Submit() {
   const status = useFormStatus();
@@ -28,12 +29,12 @@ const ContactForm = () => {
             <div className="flex flex-col space-y-1.5">
               {result.errors && <div className="text-red-500">{result.errors.name}</div>}
               <Label htmlFor="name">名前</Label>
-              <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="name" placeholder="名前" />
+              <Input name="name" placeholder="名前" />
             </div>
             <div className="flex flex-col space-y-1.5">
               {result.errors && <div className="text-red-500">{result.errors.email}</div>}
               <Label htmlFor="email">Eメール</Label>
-              <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" name="email" placeholder="XXX@example.com" />
+              <Input name="email" placeholder="XXX@example.com" />
             </div>
           </div>
           <Submit />
