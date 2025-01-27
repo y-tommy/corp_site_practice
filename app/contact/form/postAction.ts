@@ -2,16 +2,17 @@
 
 import { redirect } from "next/navigation";
 
-interface ReturnType {
+export type ReturnType = {
   errors?: {
     name?: string;
     email?: string;
   }
-}
+};
 
 export async function postAction(prev: ReturnType, formData: FormData) {
   const name = formData.get("name");
   const email = formData.get("email");
+  console.log(formData);
   if (!name && !email) {
     return {
       errors: {
