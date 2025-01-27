@@ -9,7 +9,7 @@ import { useFormState, useFormStatus } from "react-dom";
 import Body from "@/components/layouts/body/body";
 import Input from "@/components/layouts/input/input";
 
-function Submit() {
+export function Submit() {
   const status = useFormStatus();
   return (
     <Button type="submit" disabled={status.pending}>
@@ -20,6 +20,7 @@ function Submit() {
 
 const ContactForm = () => {
   const [result, dispatch] = useFormState(postAction, {});
+  // console.log(isPending);
   return (
     <Body>
       <Heading title="フォーム" />
