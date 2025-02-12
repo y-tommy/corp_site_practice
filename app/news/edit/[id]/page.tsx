@@ -17,7 +17,6 @@ const EditNews = ({ params }: { params: { id: string } }) => {
   const id = params.id
   const editNewsActionWithId = editNewsAction.bind(null,id)
   const [result, dispatch] = useFormState(editNewsActionWithId, { errors:{} });
-  console.log(result)
   
   useEffect(() => {
     const fetchData = async() => {
