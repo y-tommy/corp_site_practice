@@ -11,6 +11,7 @@ import React, { useEffect, useState } from "react"
 import { Post } from "../../type";
 import { useFormState } from "react-dom";
 import { editNewsAction } from "./editNewsAction";
+import Body from "@/components/layouts/body/body";
 
 const EditNews = ({ params }: { params: { id: string } }) => {
   const [data, setData] = useState<Post | null>(null);
@@ -34,26 +35,30 @@ const EditNews = ({ params }: { params: { id: string } }) => {
 
   return (
     <div>
-      <Heading title="編集" />
-      {data ? (
-        <form action={dispatch}>
-          <div className="grid w-full items-center gap-4">
-            <div className="flex flex-col space-y-1.5">
-              {result.errors && <div className="text-red-500">{result.errors.title}</div>}
-              <Label htmlFor="title">タイトル</Label>
-              <Input name="title" placeholder="タイトル" value={data.title} />
-            </div>
-            <div className="flex flex-col space-y-1.5">
-              {result.errors && <div className="text-red-500">{result.errors.content}</div>}
-              <Label htmlFor="content">本文</Label>
-              <TextArea name="content" placeholder="本文" value={data.content} />
-            </div>
-          </div>
-          <Submit />
-        </form>
-      ) : (
-        <Loading />
-      )};
+      <Body>
+        <Heading title="編集" />
+        <div className="flex h-screen">
+          {data ? (
+            <form action={dispatch}>
+              <div className="grid w-full items-center gap-4">
+                <div className="flex flex-col space-y-1.5">
+                  {result.errors && <div className="text-red-500">{result.errors.title}</div>}
+                  <Label htmlFor="title">タイトル</Label>
+                  <Input name="title" placeholder="タイトル" value={data.title} />
+                </div>
+                <div className="flex flex-col space-y-1.5">
+                  {result.errors && <div className="text-red-500">{result.errors.content}</div>}
+                  <Label htmlFor="content">本文</Label>
+                  <TextArea name="content" placeholder="本文" value={data.content} />
+                </div>
+              </div>
+              <Submit />
+            </form>
+          ) : (
+            <Loading />
+          )};
+        </div>
+      </Body>
     </div>
   );
 }
