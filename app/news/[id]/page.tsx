@@ -7,7 +7,6 @@ import Body from "@/components/layouts/body/body";
 import { deleteDetailData, getDetailData } from "@/app/api/news/route";
 import Loading from "@/components/layouts/loading/loading";
 import { Button } from "@/components/ui/button";
-import { redirect } from "next/navigation";
 import Link from "next/link";
 
 export const handleToDate = (day: string) =>{
