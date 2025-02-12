@@ -10,8 +10,7 @@ import { postNewsAction } from "./postNewsAction";
 import TextArea from "@/components/layouts/textarea/textarea";
 
 const PostNewsPage = () => {
-  const [result, dispatch] = useFormState(postNewsAction, {});
-
+  const [result, dispatch] = useFormState(postNewsAction, { errors:{} });
   return (
     <div>
       <Heading title="フォーム" />

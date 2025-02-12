@@ -1,6 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 
-const TextArea = ({name,placeholder}: { name: string, placeholder: string }) => {
+type TextareaProps = {
+  name: string;
+  placeholder: string;
+  value?: string
+}
+
+const TextArea = ({name,placeholder,value}: TextareaProps) => {
+  const [inputValue, setInputValue] = useState<string>(value ?? "");
+
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setInputValue(e.target.value);
+  };
+
   return (
     <textarea
       className="
@@ -24,6 +36,8 @@ const TextArea = ({name,placeholder}: { name: string, placeholder: string }) => 
         "
       name={name}
       placeholder={placeholder}
+      value={inputValue}
+      onChange={handleChange}
     />
   )
 };
