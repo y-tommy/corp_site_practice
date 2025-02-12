@@ -8,19 +8,24 @@ import { postAction } from "./postAction";
 import { useFormState, useFormStatus } from "react-dom";
 import Body from "@/components/layouts/body/body";
 import Input from "@/components/layouts/input/input";
+import { Loader2 } from "lucide-react";
 
 export function Submit() {
   const status = useFormStatus();
   return (
     <Button type="submit" disabled={status.pending}>
-      {status.pending ? "送信中..." : "送信"}
+      {status.pending ? (
+        <div className="flex">
+          <Loader2 className="animate-spin" />
+          送信中...
+        </div>
+        ) : "送信"}
     </Button>
   );
 }
 
 const ContactForm = () => {
   const [result, dispatch] = useFormState(postAction, {});
-  // console.log(isPending);
   return (
     <Body>
       <Heading title="フォーム" />
