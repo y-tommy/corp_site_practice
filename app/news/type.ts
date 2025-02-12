@@ -12,3 +12,8 @@ export type Pagination = {
   total_pages: number;
   current_page: number;
 }
+
+export type PostPaginate = {
+  posts:Post[];
+  pagination:Pagination;
+}

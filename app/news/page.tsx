@@ -2,7 +2,7 @@
 
 import Heading from "@/components/layouts/heading/heading";
 import React, { useEffect, useState } from "react";
-import { Pagination, Post } from "./type";
+import { PostPaginate } from "./type";
 import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import Link from "next/link";
 import { handleToDate } from "./[id]/page";
@@ -13,8 +13,8 @@ import Loading from "@/components/layouts/loading/loading";
 import PostNewsPage from "./post/page";
 
 const News = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [currentData, setCurrentData] = useState([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [currentData, setCurrentData] = useState<PostPaginate | null>(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
@@ -34,12 +34,16 @@ const News = () => {
     setCurrentData(data);
     setCurrentPage(pageNum);
   }
-  const posts: Post[] = currentData.posts;
-  const pagination: Pagination[] = currentData.pagination;
-
+  
   if (loading) {
     return <Loading />
   }
+
+  if (!currentData) {
+    return <div>ページを読み込めませんでした。</div>;
+  }
+  
+  const { posts,pagination } = currentData;
 
   return (
     <div>
@@ -48,19 +52,25 @@ const News = () => {
         <div className="flex h-screen">
           <Table>
             <TableBody>
-              {posts.map((post) => (
-                <TableRow
-                  key={post.id}
-                  className="hover:bg-gray-100 grid grid-cols-10"
-                >
-                  <TableCell className="col-span-2 text-left font-medium">
-                    {handleToDate(post.created_at)}
-                  </TableCell>
-                  <TableCell className="col-span-8 text-lg">
-                    <Link href={`/news/${post.id}`}>{post.title}</Link>
-                  </TableCell>
-                </TableRow>
-              ))}
+              {posts.length > 0 ? (
+                posts.map((post) => (
+                  <TableRow
+                    key={post.id}
+                    className="hover:bg-gray-100 grid grid-cols-10"
+                  >
+                    <TableCell className="col-span-2 text-left font-medium">
+                      {handleToDate(post.created_at)}
+                    </TableCell>
+                    <TableCell className="col-span-8 text-lg">
+                      <Link href={`/news/${post.id}`}>{post.title}</Link>
+                    </TableCell>
+                  </TableRow>
+                ))
+              ): (
+                <div>
+                  <p>ニュースがありません。</p>
+                </div>
+              )}
             </TableBody>
           </Table>
         </div>

@@ -1,16 +1,16 @@
 "use server";
 
-import { Post } from "@/app/news/type";
+import { Post, PostPaginate } from "@/app/news/type";
 import axios from "axios";
 import { redirect } from "next/navigation";
 
 export const getData = async () => {
-  const res = await axios.get(`${process.env.API_ENDPOINT}/posts/`);
+  const res = await axios.get<PostPaginate>(`${process.env.API_ENDPOINT}/posts/`);
   return res.data;
 };
 
 export const getPaginateData = async (page: number) => {
-  const res = await axios.get(`${process.env.API_ENDPOINT}/posts?page=${page}`)
+  const res = await axios.get<PostPaginate>(`${process.env.API_ENDPOINT}/posts?page=${page}`)
   return res.data;
 };
 
