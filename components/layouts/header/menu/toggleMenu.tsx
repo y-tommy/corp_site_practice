@@ -39,7 +39,6 @@ const ToggleMenu = () => {
               <ToggleMenuList title="事業について" index={1} onClick={handleCloseMenu} />
               <ToggleMenuList title="お問い合わせ" index={2} onClick={handleCloseMenu} />
               <ToggleMenuSingle title="ニュース" href="/news" onClick={handleCloseMenu} />
-              <Button onClick={handleCloseMenu}>ここ</Button>
             </Accordion>
           </div>
         </SheetContent>
