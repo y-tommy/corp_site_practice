@@ -2,7 +2,7 @@ import { AccordionItem } from "@/components/ui/accordion";
 import Link from "next/link";
 import React from "react"
 
-const ToggleMenuSingle = ({title, href}: { title: string, href: string}) => {
+const ToggleMenuSingle = ({title, href,onClick}: { title: string, href: string, onClick: () => void}) => {
   return (
     <AccordionItem value={title}>
       <Link className="
@@ -14,7 +14,11 @@ const ToggleMenuSingle = ({title, href}: { title: string, href: string}) => {
       font-medium
       transition-all
       hover:underline
-      " href={href}>{title}</Link>
+      "
+      href={href}
+      onClick={onClick}>
+        {title}
+      </Link>
     </AccordionItem>
   );
 }

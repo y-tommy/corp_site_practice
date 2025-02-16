@@ -15,8 +15,8 @@ import Body from "@/components/layouts/body/body";
 
 const EditNews = ({ params }: { params: { id: string } }) => {
   const [data, setData] = useState<Post | null>(null);
-  const id = params.id
-  const editNewsActionWithId = editNewsAction.bind(null,id)
+  const id = params.id;
+  const editNewsActionWithId = editNewsAction.bind(null,id);
   const [result, dispatch] = useFormState(editNewsActionWithId, { errors:{} });
   
   useEffect(() => {
@@ -51,12 +51,12 @@ const EditNews = ({ params }: { params: { id: string } }) => {
                   <Label htmlFor="content">本文</Label>
                   <TextArea name="content" placeholder="本文" value={data.content} />
                 </div>
+                <Submit />
               </div>
-              <Submit />
             </form>
           ) : (
             <Loading />
-          )};
+          )}
         </div>
       </Body>
     </div>

@@ -12,7 +12,7 @@ import { footerItems } from "../footer/footerItems";
 
 const BodyCardList = ({index}: {index: number}) => {
   return (
-    <ul className="grid grid-cols-2">
+    <ul className="grid grid-cols-1 sm:grid-cols-2">
       {footerItems[index].map((item) => (
         <li className="p-10 mx-auto" key={item.name}>
           <Link href={item.href}>

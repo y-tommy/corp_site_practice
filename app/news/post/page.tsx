@@ -13,7 +13,7 @@ const PostNewsPage = () => {
   const [result, dispatch] = useFormState(postNewsAction, { errors:{} });
   return (
     <div>
-      <Heading title="フォーム" />
+      <Heading title="新規作成(CRUD機能のテストで置いてます。)" />
       <div className="flex">
         <form action={dispatch}>
           <div className="grid w-full items-center gap-4">
@@ -27,8 +27,8 @@ const PostNewsPage = () => {
               <Label htmlFor="content">本文</Label>
               <TextArea name="content" placeholder="本文" />
             </div>
+            <Submit />
           </div>
-          <Submit />
         </form>
       </div>
     </div>

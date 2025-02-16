@@ -42,8 +42,8 @@ const ContactForm = () => {
               <Label htmlFor="email">Eメール</Label>
               <Input name="email" placeholder="XXX@example.com" />
             </div>
+            <Submit />
           </div>
-          <Submit />
         </form>
       </div>
     </Body>
