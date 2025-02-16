@@ -47,10 +47,12 @@ const NewsDetails = ({ params }:{ params: { id: string } }) => {
           <h1 className="text-4xl py-8">{post.title}</h1>
           <p className="text-xs py-4">{handleToDate(post.updated_at)}</p>
           <p className="text-lg py-4">{post.content}</p>
-          <Button variant="destructive" onClick={() => handleClickDelete()}>消去</Button>
-          <Button asChild>
-            <Link href={`/news/edit/${id}`}>編集</Link>
-          </Button>
+          <div className="space-x-4">
+            <Button variant="destructive" onClick={() => handleClickDelete()}>消去</Button>
+            <Button asChild>
+              <Link href={`/news/edit/${id}`}>編集</Link>
+            </Button>
+          </div>
         </div>
       ) : (
           <Loading />
