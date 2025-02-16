@@ -1,10 +1,11 @@
+import Body from "@/components/layouts/body/body";
 import React from "react"
 
 const EditThanksPage = () => {
   return (
-    <div>
+    <Body>
       編集しました。
-    </div>
+    </Body>
   )
 };
 

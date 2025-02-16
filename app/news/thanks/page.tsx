@@ -1,10 +1,11 @@
+import Body from "@/components/layouts/body/body";
 import React from "react";
 
 const ThanksNewsPage = () => {
   return (
-    <div>
+    <Body>
       投稿しました。
-    </div>
+    </Body>
   );
 }
 

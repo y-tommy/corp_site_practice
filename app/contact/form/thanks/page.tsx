@@ -1,10 +1,11 @@
+import Body from "@/components/layouts/body/body";
 import React from "react";
 
 const Thanks = () => {
   return (
-    <div>
+    <Body>
       お問い合わせありがとうございます。
-    </div>
+    </Body>
   );
 }
 
