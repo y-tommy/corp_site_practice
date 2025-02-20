@@ -1,6 +1,5 @@
 "use client";
 
-import { getDetailData } from "@/app/api/news/route";
 import { Submit } from "@/app/contact/form/page";
 import Heading from "@/components/layouts/heading/heading";
 import Input from "@/components/layouts/input/input";
@@ -12,20 +11,22 @@ import { Post } from "../../type";
 import { useFormState } from "react-dom";
 import { editNewsAction } from "./editNewsAction";
 import Body from "@/components/layouts/body/body";
+import axios from "axios";
+import { useParams } from "next/navigation";
 
-const EditNews = ({ params }: { params: { id: string } }) => {
+const EditNews = () => {
   const [data, setData] = useState<Post | null>(null);
-  const id = params.id;
+  const { id } = useParams<{id: string}>();
   const editNewsActionWithId = editNewsAction.bind(null,id);
   const [result, dispatch] = useFormState(editNewsActionWithId, { errors:{} });
   
   useEffect(() => {
     const fetchData = async() => {
       try {
-        const detailData = await getDetailData(id);
-        setData(detailData);
+        const detailData = await axios.get(`/api/news/${id}`);
+        setData(detailData.data);
       } catch (error) {
-        console.error(error)
+        console.error(error);
       }
     };
 
