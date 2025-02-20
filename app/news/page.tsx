@@ -7,31 +7,33 @@ import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import Link from "next/link";
 import { handleToDate } from "./[id]/page";
 import Body from "@/components/layouts/body/body";
-import { getData, getPaginateData } from "../api/news/route";
 import { Button } from "@/components/ui/button";
 import Loading from "@/components/layouts/loading/loading";
 import PostNewsPage from "./post/page";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const News = () => {
+  const router = useRouter();
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [currentData, setCurrentData] = useState<PostPaginate | null>(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = async (currentPage:number) => {
       try {
-        const data = await getData();
-        setCurrentData(data);
+        const res = await axios.get(`/api/news?page=${currentPage}`);
+        console.log(res.data);
+        setCurrentData(res.data);
       } catch (error) {
         console.error(error);
       } finally {
         setLoading(false);
       }
     };
-    fetchData();
-  },[]);
-  const paginate = async (pageNum: number) => {
-    const data = await getPaginateData(pageNum);
-    setCurrentData(data);
+    fetchData(currentPage);
+  },[currentPage]);
+
+  const paginate = (pageNum: number) => {
     setCurrentPage(pageNum);
   }
   
@@ -59,7 +61,7 @@ const News = () => {
                     className="hover:bg-gray-100 grid grid-cols-10"
                   >
                     <TableCell className="col-span-2 text-left font-medium">
-                      {handleToDate(post.created_at)}
+                      {handleToDate(post.createdAt)}
                     </TableCell>
                     <TableCell className="col-span-8 text-lg">
                       <Link href={`/news/${post.id}`}>{post.title}</Link>
@@ -81,10 +83,10 @@ const News = () => {
           >
             戻る
           </Button>
-          <span>{currentPage}ページ目/{pagination.total_pages}</span>
+          <span>{currentPage}ページ目/{pagination.totalPages}</span>
           <Button 
             onClick={() => paginate(currentPage + 1)}
-            disabled={currentPage === pagination.total_pages}
+            disabled={currentPage === pagination.totalPages}
           >
             次へ
           </Button>

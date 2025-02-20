@@ -2,18 +2,23 @@ export type Post = {
   id: number;
   title: string;
   content: string;
-  created_at: string;
-  updated_at: string;
+  createdAt: Date;
+  updatedAt: Date;
 };
 
 export type Pagination = {
-  total_count: number;
-  limit_value: number;
-  total_pages: number;
-  current_page: number;
-}
+  totalPages: number;
+  currentPage: number;
+};
 
 export type PostPaginate = {
   posts:Post[];
   pagination:Pagination;
-}
+};
+
+export type errorNewsType = {
+  errors?: {
+    title?:string;
+    content?:string;
+  }
+};

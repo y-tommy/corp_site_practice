@@ -1,14 +1,8 @@
 "use server";
 
-import { editNewsData } from "@/app/api/news/route";
+import axios from "axios";
 import { redirect } from "next/navigation";
-
-type errorNewsType = {
-  errors?: {
-    title?:string;
-    content?:string;
-  }
-};
+import { errorNewsType } from "../../type";
 
 export const editNewsAction = async(id:string, prev: errorNewsType, formData: FormData) => {
   const title = formData.get("title");
@@ -34,7 +28,14 @@ export const editNewsAction = async(id:string, prev: errorNewsType, formData: Fo
     };
   }
 
-  editNewsData(id,formData);
+  const data = {
+    title: title as string,
+    content: content as string,
+  }
+
+  await axios.put(`${process.env.ROOT_URL}/api/news/${id}`,
+    data
+  );
 
   redirect("/news/thanks");
 }
