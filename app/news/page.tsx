@@ -11,10 +11,8 @@ import { Button } from "@/components/ui/button";
 import Loading from "@/components/layouts/loading/loading";
 import PostNewsPage from "./post/page";
 import axios from "axios";
-import { useRouter } from "next/navigation";
 
 const News = () => {
-  const router = useRouter();
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [currentData, setCurrentData] = useState<PostPaginate | null>(null);
   const [loading, setLoading] = useState(true);
